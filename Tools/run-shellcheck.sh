@@ -21,6 +21,8 @@ echo "Running shellcheck in '$search_directory'."
 # Disabled rules:
 # SC2121: allow 'set' as assignment (NuttX-style)
 # SC1008: unrecognized shebang
+# SC1090: use of source (.) - Can't follow non-constant source. Use a directive to specify location.
+# SC1091: use of source (.) - Not following: xxxx openBinaryFile: does not exist (No such file or directory)
 # SC2086: double quote to prevent globbing and word splitting
 # SC2166: allow the form [ $OUTPUT_MODE == fmu -o $OUTPUT_MODE == io ]
 # SC2148: allow files w/o shebang
@@ -28,6 +30,8 @@ echo "Running shellcheck in '$search_directory'."
 # SC2181: Check exit code directly with e.g. 'if mycmd;', not indirectly with $?.
 shellcheck -x \
 	-e SC1008 \
+	-e SC1090 \
+	-e SC1091 \
 	-e SC2086 \
 	-e SC2121 \
 	-e SC2148 \
