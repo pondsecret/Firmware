@@ -271,6 +271,8 @@ if(SHELLCHECK_PATH)
 	# TODO: fix SC2086, SC2166
 	add_custom_target(shellcheck
 		COMMAND ${SHELLCHECK_PATH} --shell=sh
+			--exclude=SC1090 # SC1090: use of source (.) - Can't follow non-constant source. Use a directive to specify location.
+			--exclude=SC1091 # SC1091: use of source (.) - Not following: xxxx openBinaryFile: does not exist (No such file or directory)
 			--exclude=SC2121 # SC2121: To assign a variable, use just 'var=value'
 			--exclude=SC2086 # SC2086: Double quote to prevent globbing and word splitting.
 			--exclude=SC2166 # SC2166: Prefer [ p ] || [ q ] as [ p -o q ] is not well defined.
